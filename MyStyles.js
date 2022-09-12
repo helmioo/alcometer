@@ -1,9 +1,7 @@
 import { StyleSheet } from "react-native"
 
 export const LightTheme = StyleSheet.create({
-    banner: {
-      alignItems: 'left',
-    },
+   
     container: {
         paddingTop: 40,
       flex: 1,
@@ -14,16 +12,18 @@ export const LightTheme = StyleSheet.create({
     boldText: {
       fontWeight: 'bold',
     },
-    header: {
-      
+    middle: {
+      flex: 4,
+      justifyContent: 'flex-start',
+      alignContent: 'flex-start',
     },
-    label:{
+    button:{
       backgroundColor: '#555'
     }
 })
   
 export const DarkTheme = StyleSheet.create({
-      container: { ...LightTheme.banner, ...LightTheme.container, ...LightTheme.header, backgroundColor: 'lightgrey'},
+      container: { ...LightTheme.boldText, ...LightTheme.container, ...LightTheme.header, backgroundColor: 'lightgrey'},
       label:{
         backgroundColor: 'yellow'
       }

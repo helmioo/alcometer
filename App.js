@@ -20,7 +20,7 @@ export default function App() {
   const [ok, setOk] = useState(false)
   const [dark, setDark] = useState(false)
 
-  const theme = dark ? LightTheme : DarkTheme
+  //const theme = dark ? LightTheme : DarkTheme
 
   const ShowAlert = () => {
     Alert.alert(
@@ -59,33 +59,32 @@ export default function App() {
 
   return (
     <ScrollView style={{ width: '100%' }}>
-      <View style={theme.container}>
-        <View>
-          <Switch
-            style={{alignItems: 'left'}}
-            onChange={() => setDark(prev => !prev)}
-            value={dark}
-            //style={{ transform: [{scale:1.5}]}}
-            thumbColor='grey'
-            trackColor={{ false: 'white', true: 'black' }}
-          />
-        </View>
-        <View style={{fontWeight: 'bold'}}>
-          <Text>Alcometer</Text>
-        </View>
-        <View>
-          <Text>Weight</Text>
+      <View style={LightTheme.container}>
+
+        <Switch
+          style={{ alignContent: 'flex-start' }}
+          onChange={() => setDark(prev => !prev)}
+          value={dark}
+          //style={{ transform: [{scale:1.5}]}}
+          thumbColor='grey'
+          trackColor={{ false: 'white', true: 'black' }}
+        />
+
+        <Text style={LightTheme.boldText}>Alcometer</Text>
+
+        <View style={LightTheme.middle}>
+          <Text style={LightTheme.boldText}>Weight</Text>
           <TextInput
             value={weight}
             onChangeText={text => setWeight(text)}
             keyboardType='decimal-pad'
           />
-          <Text>Bottles</Text>
+          <Text style={LightTheme.boldText}>Bottles</Text>
           <NumericInput
             value={bottles}
             onChange={value => setBottles(value)}
           />
-          <Text>Hours</Text>
+          <Text style={LightTheme.boldText}>Hours</Text>
           <NumericInput
             value={hours}
             onChange={value => setHours(value)}
@@ -96,12 +95,11 @@ export default function App() {
             onPress={value => setGender(value)}
           />
         </View>
-        <View>
-          <Text>{result.toFixed(2)}</Text>
-        </View>
-        <View>
-          <Button title='CALCULATE' />
-        </View>
+
+        <Text>{result.toFixed(2)}</Text>
+
+        <Button style={LightTheme.button} title='CALCULATE' />
+
       </View>
     </ScrollView>
   );
