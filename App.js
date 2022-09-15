@@ -20,7 +20,7 @@ export default function App() {
   const [ok, setOk] = useState(false)
   const [dark, setDark] = useState(false)
 
-  //const theme = dark ? LightTheme : DarkTheme
+  const theme = dark ? LightTheme : DarkTheme
 
   const ShowAlert = () => {
     Alert.alert(
@@ -58,49 +58,51 @@ export default function App() {
     } */
 
   return (
-    <ScrollView style={{ width: '100%' }}>
-      <View style={LightTheme.container}>
+    <ScrollView style={theme.container}>
 
-        <Switch
-          style={{ alignContent: 'flex-start' }}
-          onChange={() => setDark(prev => !prev)}
-          value={dark}
-          //style={{ transform: [{scale:1.5}]}}
-          thumbColor='grey'
-          trackColor={{ false: 'white', true: 'black' }}
+      <Switch
+        onValueChange={(value) => setDark(value)}
+        value={dark}
+        thumbColor='#cecece'
+        trackColor={{ false: '#db9833', true: '#f8ead6' }}
+      />
+
+      <Text style={[LightTheme.boldText, LightTheme.title]}>Alcometer</Text>
+
+      <View style={LightTheme.middle}>
+        <Text style={LightTheme.boldText}>Weight</Text>
+        <TextInput
+          style={LightTheme.input}
+          value={weight}
+          onChangeText={text => setWeight(text)}
+          keyboardType='decimal-pad'
         />
-
-        <Text style={LightTheme.boldText}>Alcometer</Text>
-
-        <View style={LightTheme.middle}>
-          <Text style={LightTheme.boldText}>Weight</Text>
-          <TextInput
-            value={weight}
-            onChangeText={text => setWeight(text)}
-            keyboardType='decimal-pad'
-          />
-          <Text style={LightTheme.boldText}>Bottles</Text>
-          <NumericInput
-            value={bottles}
-            onChange={value => setBottles(value)}
-          />
-          <Text style={LightTheme.boldText}>Hours</Text>
-          <NumericInput
-            value={hours}
-            onChange={value => setHours(value)}
-          />
-          <RadioForm
-            radio_props={genders}
-            initial={0}
-            onPress={value => setGender(value)}
-          />
-        </View>
-
-        <Text>{result.toFixed(2)}</Text>
-
-        <Button style={LightTheme.button} title='CALCULATE' />
-
+        <Text style={LightTheme.boldText}>Bottles</Text>
+        <NumericInput
+          style={LightTheme.input}
+          value={bottles}
+          onChange={value => setBottles(value)}
+        />
+        <Text style={LightTheme.boldText}>Hours</Text>
+        <NumericInput
+          style={LightTheme.input}
+          value={hours}
+          onChange={value => setHours(value)}
+        />
+        <RadioForm
+          style={LightTheme.radioButton}
+          labelStyle={LightTheme.boldText}
+          buttonColor={'#f8ead6'}
+          radio_props={genders}
+          initial={0}
+          onPress={value => setGender(value)}
+        />
       </View>
+
+      <Text>{result.toFixed(2)}</Text>
+
+      <Button style={LightTheme.button} title='CALCULATE' />
+
     </ScrollView>
   );
 }
