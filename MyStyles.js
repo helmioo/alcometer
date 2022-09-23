@@ -1,18 +1,20 @@
 import { StyleSheet } from "react-native"
 
+// vaalea teema ja päämäärittelyt
 export const LightTheme = StyleSheet.create({
 
   container: {
-    paddingTop: 60,
+    paddingTop: 20,
+    paddingBottom: 20,
     flex: 1,
-    backgroundColor: '#db9833',
-    padding: 8,
+    backgroundColor: '#f8ead6',
+    padding: 4,
   },
   start: {
     flex: 1,
     flexDirection: "row",
     justifyContent: 'space-between',
-    paddingStart: 10,
+    paddingStart: 5,
   },
   title: {
     fontWeight: 'bold',
@@ -68,15 +70,37 @@ export const LightTheme = StyleSheet.create({
   }
 })
 
+// tumma teema, tuotu mukaan päämäärittelyt vaaleasta teemasta
 export const DarkTheme = StyleSheet.create({
   container: {
-    ...LightTheme.boldText,
     ...LightTheme.container,
-    ...LightTheme.header,
-    backgroundColor: '#f8ead6',
+    backgroundColor: '#db9833',
+  },
+  start: {
+    ...LightTheme.start,
+  },
+  title: {
+    ...LightTheme.title,
+  },
+  boldText: {
+    ...LightTheme.boldText,
   },
   input: {
+    ...LightTheme.input,
     backgroundColor: '#f8ead6',
   },
-
+  radioButton: {
+    ...LightTheme.radioButton,
+  },
+  middle: {
+    ...LightTheme.middle,
+  },
+  end: {
+    ...LightTheme.end,
+  },
+  button: {
+    ...LightTheme.button,
+    backgroundColor: '#f8ead6',
+    color: '#000',
+  },
 })
