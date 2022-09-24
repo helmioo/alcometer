@@ -121,7 +121,6 @@ export default function App() {
         </View>
         <View>
         <Text style={theme.end}>{result.toFixed(2)}</Text>
-
         <Pressable style={theme.end}
           onPress={calculate}>
           <Text style={theme.button}>Calculate</Text>
