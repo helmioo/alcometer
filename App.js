@@ -57,7 +57,7 @@ export default function App() {
     let gramsLeft = grams - (burning * hours)
    
 
-    const bloodAlcohol = gender === 'male' ? (gramsLeft / (weight * 0.7)) : (gramsLeft / (weight * 0.6))
+    const bloodAlcohol = gender === 'male' ? gramsLeft / (weight * 0.7) : gramsLeft / (weight * 0.6)
     setResult(bloodAlcohol)
 
     // jos tulos on negatiivinen, aseta 0
